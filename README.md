@@ -1,2 +1,2 @@
-# cod3r-desafio-exercicios
+# em construção
 Exercícios para aprimorar o raciocínio em Javascript.
