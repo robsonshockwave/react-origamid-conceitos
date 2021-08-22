@@ -1,33 +1,37 @@
-import React from 'react';
+import React from 'react'
 
-const coresArray = ['azul', 'roxo', 'laranja', 'verde', 'vermelho', 'cinza'];
+export default function App() {
+    // const [termo, setTermo] = React.useState(false);
+    const [cores, setCores] = React.useState([]);
 
-const App = () => {
-  const [cores, setCores] = React.useState(['azul', 'vermelho']);
-
-  function handleChange({ target }) {
-    if (target.checked) {
-      setCores([...cores, target.value]);
-    } else {
-      setCores(cores.filter((cor) => cor !== target.value));
+    function handleChange({target}) {
+        if (target.checked) {
+            setCores([...cores, target.value]);
+        } else {
+            setCores(cores.filter((cor) => cor !== target.value));
+        }
     }
-  }
 
-  return (
-    <form>
-      {coresArray.map((cor, index) => (
-        <label key={index} style={{ textTransform: 'capitalize' }}>
-          <input
-            type="checkbox"
-            value={cor}
-            checked={cores.includes(cor)}
-            onChange={handleChange}
-          />
-          {cor}
-        </label>
-      ))}
-    </form>
-  );
-};
-
-export default App;
+    return (
+        <form>
+            <label>
+                <input 
+                    type="checkbox" 
+                    value="azul"
+                    checked={cores.includes('azul')} // se true
+                    onChange={handleChange}
+                />
+                Azul
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    value="vermelho"
+                    checked={cores.includes('vermelho')} // se true
+                    onChange={handleChange}
+                />
+                Vermelho
+            </label>
+        </form>
+    )
+}
